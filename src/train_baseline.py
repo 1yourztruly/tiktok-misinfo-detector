@@ -46,14 +46,14 @@ pipeline.fit(X_train, y_train)
 
 y_pred = pipeline.predict(X_test)
 
+print("\n=== TEXT MODEL RESULTS ===")
 print(classification_report(y_test, y_pred, zero_division=0))
 
 print("\nDetailed predictions:")
 for text, true_label, pred_label in zip(X_test, y_test, y_pred):
     print("-" * 60)
     print("TRUE:", true_label, "| PRED:", pred_label)
-    print("TEXT SNIPPET:", text[:180].replace("\n", " "), "...")
-
+    print("TEXT:", text[:120])
 # Save confusion matrix plot
 disp = ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
 plt.tight_layout()
